@@ -1,0 +1,17 @@
+.videoList{
+    display:block;
+    text-transform: uppercase;
+    width: auto;
+    color:blue;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  

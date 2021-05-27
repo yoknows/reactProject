@@ -1,4 +1,6 @@
+// VideosToWatch -- Retrieve from Firebase the videos that have been marked as watch.  Show in order of added
 import { useEffect, useState } from 'react';
+import styles from './VideosToWatch.module.css';
 import firebase from '../Utils/Firebase';
 
 function VideosToWatch () {
@@ -25,9 +27,12 @@ function VideosToWatch () {
 
     return (
         <section>
-            <h2>These are the videos you have already said you want to watch!</h2>
-            <table>
-                <th><td>Title</td><td>Year</td></th>
+            <h2 className={styles.videoList}>These are the videos you have already said you want to watch!</h2>
+            <table className={styles.center} > 
+                <thead>
+                    <tr><th>Video Title</th><th>Video Year</th></tr>
+                </thead>
+                <tbody>
         {videos.map(video => {
           return (
             <tr key={video.date}>
@@ -36,6 +41,7 @@ function VideosToWatch () {
             </tr>
           )
         })}
+        </tbody>
       </table>
         </section>
     )
