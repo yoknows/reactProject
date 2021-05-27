@@ -1,0 +1,21 @@
+.propertyTitle {
+    display:block;
+    text-transform: uppercase;
+    width: auto;
+    color:blue;
+    font-weight: bold;
+}
+.titleWrap{
+    display:inline-block;
+}
+
+.propertyValue {
+    display:block;
+    width:auto;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.valueWrap {
+    display:inline-block;
+}
