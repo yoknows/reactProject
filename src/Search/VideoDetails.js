@@ -11,16 +11,14 @@ function VideoDetails()
     const [videoData, setVideoData] = useState(null);
     const [idValue, setIdValue] = useState(null);
     const {id} = useParams();   // get video ID from URL
-    const [searchData, isLoading, fetchNewUrl] = useApiData(searchUrl);
-    //const [isReadyToShowDetails,setIsReadyToShowDetails ] = useState(null);
-
+    // const [searchData, isLoading, fetchNewUrl] = useApiData(searchUrl);  // I tried to get this to work with Custom Hook, but had issues
+    
     useEffect ( () =>{
         setIdValue(id);
-        console.log('VideoDetails:UseEffect:SearchTermValue-->' + id);
-       } // useEffect internal
+       } 
        ,[]
     
-     ) // useEffect
+     ) // useEffect, when component loads
 
      // when API url is generated, call function to get API data
      useEffect ( () =>{
@@ -28,9 +26,9 @@ function VideoDetails()
         //console.log('after fetch with term='+ json);
     }, [searchUrl])
     
-    useEffect ( () =>{
-        console.log('About to show data='+ searchData);
-    }, [searchData])
+    // useEffect ( () =>{
+    //     console.log('About to show data='+ searchData);
+    // }, [searchData])
 
     // using url, call API and set videoData state with retrieved video details
     async function getData(){
@@ -57,16 +55,10 @@ function VideoDetails()
     
     )
 
-    // setup video DB
+    // setup video DB on component load
     useEffect(
         () => {
             const dbRef = firebase.database().ref();
-            // fires when value changes
-            // dbRef.on('value', (snapshot) => {
-            //     // callback function anytime data has changed
-            //     const data = snapshot.val();
-            //     console.log(data);
-            // })
         }, []
     )
 
@@ -77,9 +69,11 @@ function VideoDetails()
         date: Date.now(), 
         title: videoData.Title,
         year: videoData.Year,
-    }
-    const dbRef = firebase.database().ref('/videosToWatch/');
-    dbRef.push(videoToAdd);
+        }
+    
+        // add to the DB
+        const dbRef = firebase.database().ref('/videosToWatch/');
+        dbRef.push(videoToAdd);
     }
 
     return (

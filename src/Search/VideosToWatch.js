@@ -37,7 +37,7 @@ function VideosToWatch () {
           return (
             <tr key={video.date}>
               <td>{video.title}</td>
-              <td>{video.year}</td>
+              <td>{video.year}, {video.date}--</td>
             </tr>
           )
         })}

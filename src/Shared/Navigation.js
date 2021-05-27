@@ -4,8 +4,8 @@ function Navigation() {
     return (
     <nav>
         <ul>
-            <li><NavLink to="/" activeStyle={{color:'red'}}>Search for Movies</NavLink></li>
-            <li><NavLink to="/WatchList" activeStyle={{color:'red'}}>Videos Watch List</NavLink></li>
+            <li><NavLink exact to="/" activeStyle={{color:'red', fontWeight: "bold",}}>Search for Movies</NavLink></li>
+            <li><NavLink to="/WatchList" activeStyle={{color:'red',fontWeight: "bold",}}>Videos Watch List</NavLink></li>
         </ul>
     </nav>
     )
