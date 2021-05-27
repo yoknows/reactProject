@@ -30,14 +30,14 @@ function VideosToWatch () {
             <h2 className={styles.videoList}>These are the videos you have already said you want to watch!</h2>
             <table className={styles.center} > 
                 <thead>
-                    <tr><th>Video Title</th><th>Video Year</th></tr>
+                    <tr><th>Video Title</th><th>Year Released</th></tr>
                 </thead>
                 <tbody>
         {videos.map(video => {
           return (
             <tr key={video.date}>
               <td>{video.title}</td>
-              <td>{video.year}, {video.date}--</td>
+              <td>{video.year}</td>
             </tr>
           )
         })}
